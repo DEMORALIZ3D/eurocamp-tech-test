@@ -7,7 +7,7 @@ html {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: ;
+  overflow:;
 }
 
 *,
@@ -42,9 +42,9 @@ img {
 
 footer {
   background: #313738;
-  color: #cdd3bc
+  color: #cdd3bc;
 }
 
 main {
-  background: #cdd3bc
+  background: #cdd3bc;
 }

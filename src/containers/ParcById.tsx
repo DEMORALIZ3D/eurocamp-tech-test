@@ -17,7 +17,7 @@ const ParcById = () => {
   const fetchParcData = useCallback(async () => {
     try {
       const result = await axios.get<ParcEntity>(
-        `http://localhost:3001/api/1/parcs/${id}`
+        `http://localhost:3001/api/1/parcs/${id}`,
       );
 
       if (result.data) {
