@@ -7,6 +7,7 @@ import axios, { AxiosError } from "axios";
 import { ParcResponse } from "../store/Parcs/interfaces";
 import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Fab, TextField, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import LoadingCircle from "../components/layout/loading";
 
 const Parcs = () => {
     const { id } = useParams();
@@ -53,44 +54,45 @@ const Parcs = () => {
         return <div>Error: {parcsFetchError}</div>
     }
 
-    if (isParcsLoading) {
-        return <div>Loading...</div>;
-    }
-
     return (
         <div>
             <Box sx={{ pb: 4 }}>
                 <Typography variant="h3" component="h1">All Parcs</Typography>
                 <Typography variant="body1" component="p">Here you can find a total list of parks</Typography>
             </Box>
-            <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
-                <TextField size="small" onChange={(evt) => setSearchValue(evt.target.value)} value={searchValue} id="outlined-basic" label="Search" variant="outlined" />
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Box sx={{ display: 'flex', gap: 4, flexWrap: "wrap", alignItems: 'center', maxWidth: '1500px', justifyContent: 'center' }}>
-                    {allParcs.length > 0 && allParcs.filter((parc) => (searchValue?.length === 0 || parc.name.includes(searchValue))).map((parc) => (
-                        <Card key={parc.id} sx={{ width: isMobile ? '100%' : '300px', height: '400px', display: 'flex', flexDirection: 'column' }}>
-                            <CardHeader title={parc.name} />
-                            <CardMedia
-                                component="img"
-                                height="194"
-                                image="https://source.unsplash.com/random/?beach,camp"
-                                alt="Paella dish"
-                            />
-                            <CardContent>
-                                {parc.description}
-                            </CardContent>
-                            <CardActions sx={{ display: 'flex', alignItems: 'flex-end', flexGrow: 1, justifyContent: 'flex-end' }}>
-                                <Link to={`/parcs/${parc.id}`}>
-                                    <Fab size="small" color="primary" aria-label="add">
-                                        <ArrowForwardIcon />
-                                    </Fab>
-                                </Link>
-                            </CardActions>
-                        </Card>
-                    ))}
-                </Box>
-            </Box>
+            {isParcsLoading ? <LoadingCircle /> : (
+                <>
+                    <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+                        <TextField size="small" onChange={(evt) => setSearchValue(evt.target.value)} value={searchValue} id="outlined-basic" label="Search" variant="outlined" />
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Box sx={{ display: 'flex', gap: 4, flexWrap: "wrap", alignItems: 'center', maxWidth: '1500px', justifyContent: 'center' }}>
+                            {allParcs.length > 0 && allParcs.filter((parc) => (searchValue?.length === 0 || parc.name.includes(searchValue))).map((parc) => (
+                                <Card key={parc.id} sx={{ width: isMobile ? '100%' : '300px', height: '400px', display: 'flex', flexDirection: 'column' }}>
+                                    <CardHeader title={parc.name} />
+                                    <CardMedia
+                                        component="img"
+                                        height="194"
+                                        image="https://source.unsplash.com/random/?beach,camp"
+                                        alt="Paella dish"
+                                    />
+                                    <CardContent>
+                                        {parc.description}
+                                    </CardContent>
+                                    <CardActions sx={{ display: 'flex', alignItems: 'flex-end', flexGrow: 1, justifyContent: 'flex-end' }}>
+                                        <Link to={`/parcs/${parc.id}`}>
+                                            <Fab size="small" color="primary" aria-label="add">
+                                                <ArrowForwardIcon />
+                                            </Fab>
+                                        </Link>
+                                    </CardActions>
+                                </Card>
+                            ))}
+                        </Box>
+                    </Box>
+                </>
+            )}
+
         </div >
     );
 };

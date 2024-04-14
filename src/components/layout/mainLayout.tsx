@@ -11,11 +11,11 @@ const Logo = styled('div', { shouldForwardProp: (propName) => propName !== 'url'
     };
 })
 
-const Header = styled('header')({
+const Header = styled('header')(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '1rem',
+    padding: theme.spacing(0, 2),
     borderBottom: '1px solid #ccc',
     '& nav ul': {
         display: 'flex',
@@ -28,7 +28,7 @@ const Header = styled('header')({
             },
         },
     },
-});
+}));
 
 const Footer = styled('footer')({
     display: 'flex',
