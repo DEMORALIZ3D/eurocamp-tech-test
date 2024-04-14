@@ -1,5 +1,5 @@
 import { styled } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Logo = styled('div', { shouldForwardProp: (propName) => propName !== 'url' })<{ url: string }>(({ url }) => {
     return {
@@ -55,13 +55,13 @@ const MainLayout = () => {
                 <nav>
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="/about">About</a>
+                            <Link to="/parcs">Parcs</Link>
                         </li>
                         <li>
-                            <a href="/contact">Contact</a>
+                            <a href="https://www.eurocamp.co.uk/information/about-eurocamp" target="_blank">About</a>
                         </li>
                     </ul>
                 </nav>

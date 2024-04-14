@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { setParcError } from "../store/Parcs";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { ParcEntity, ParcResponse } from "../store/Parcs/interfaces";
+import { Box, Button, Typography } from "@mui/material";
 
 
 const ParcById = () => {
@@ -12,17 +13,24 @@ const ParcById = () => {
     const dispatch = useAppDispatch();
     const parcsFetchError = useAppSelector(hasParcsError);
     const [parcData, setParcData] = useState<ParcEntity>(null);
+    const [attempts, setAttempts] = useState(0);
 
     const fetchParcData = useCallback(async () => {
         try {
             const result = await axios.get<ParcEntity>(`http://localhost:3001/api/1/parcs/${id}`);
-            console.log(result)
+
             if (result.data) {
                 setParcData(result.data);
             }
-        } catch (error) {
-            dispatch(setParcError((error as AxiosError).message));
-            console.log(error);
+        } catch (err) {
+            const error = err as AxiosError
+            if (error.response?.status === 502 && attempts < 3) {
+                setAttempts(p => p++)
+                await fetchParcData();
+            } else {
+                dispatch(setParcError((error as AxiosError).message));
+                console.log(error);
+            }
         }
     }, [id, dispatch]);
 
@@ -43,10 +51,17 @@ const ParcById = () => {
     }
 
     return (
-        <div>
-            <h1>{parcName}</h1>
-            <p>{parcDescription}</p>
-        </div>
+        <Box sx={{ display: "flex", alignItems: 'start', justifyContent: 'center' }}>
+            <Box>
+                <img src="https://source.unsplash.com/random/?beach,camp" alt={parcData.name} width="300" height="300" />
+            </Box>
+            <Box sx={{ p: 2 }}>
+                <h1>{parcName}</h1>
+                <p>{parcDescription}</p>
+                <Typography variant="h6">Price: &pound;299</Typography>
+                <Button variant="outlined">Book Now</Button>
+            </Box>
+        </Box>
     );
 };
 
