@@ -11,15 +11,14 @@ const ParcById = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const parcsFetchError = useAppSelector(hasParcsError);
-  const [parcData, setParcData] = useState<ParcEntity>(null);
+  const [parcData, setParcData] = useState<ParcEntity | null>(null);
   const [attempts, setAttempts] = useState(0);
 
   const fetchParcData = useCallback(async () => {
     try {
       const result = await axios.get<ParcEntity>(
-        `http://localhost:3001/api/1/parcs/${id}`,
+        `http://localhost:3001/api/1/parcs/${id}`
       );
-
       if (result.data) {
         setParcData(result.data);
       }
@@ -30,7 +29,6 @@ const ParcById = () => {
         await fetchParcData();
       } else {
         dispatch(setParcError((error as AxiosError).message));
-        console.log(error);
       }
     }
   }, [id, dispatch]);

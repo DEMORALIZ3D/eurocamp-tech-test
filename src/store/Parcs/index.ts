@@ -10,7 +10,7 @@ export interface IParcsState {
   };
 }
 
-const parcIntitialState: IParcsState = {
+export const parcIntitialState: IParcsState = {
   api: {
     data: [],
     loading: false,

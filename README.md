@@ -78,3 +78,5 @@ I didnt get change to really play with the errors/api due to trying to build the
 I didnt get change to write too much TS, and ended up spending more time on the DOM and catching up on APIs for packages than anything else.
 
 I have added tests, however these were added after the 2 hour mark!
+
+On an entertaining note - I now hate React-Router - I have spent more time working out why RR isnt working/testing right than anything!

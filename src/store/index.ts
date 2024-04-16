@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import parcsReducer from "./Parcs";
 
@@ -7,6 +7,17 @@ export const store = configureStore({
     parcs: parcsReducer,
   },
 });
+
+const rootReducer = combineReducers({
+  parcs: parcsReducer,
+})
+
+export const setupStore = (preloadedState?: Partial<RootState>) => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  })
+}
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
