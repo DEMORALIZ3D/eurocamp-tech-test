@@ -29,6 +29,14 @@ varchars such as comments should have limits. e.g. varchar(250)
 
 #### Brief explanation of the latest practices in your respective field of expertise.
 
+My experiance:
+
+I have worked with GraphQL about 4 years ago in the early days. I have also used Next.js about 4 years ago for commericial use, creating various blogs/FAQ for Origin Broadband.
+
+I have used more modern Next.JS 13+ in a hobbiest fashion. I am looking to re-write my portfolio using Next.js 14 w/ app directory and Material 3 design system.
+
+I am used to React./Typescript and Node. I can build various components/pages using figma or designing my own if needed.
+
 The latest practices in the FE space are forever changing and currently it seems the frontend space is heading down the serverless space and monolithic/microservice hybrid in that edge functions and lambdas running on "FE" frameworks such as Next.js and Vercels offerings seem to be gaining traction. The ability to fetch data and have the speed of BE generated components/HTML like the proedural PHP days of old.
 
 TypeScript as far as im concerned is the best practice and generally is a widely adopted opinion.
@@ -80,3 +88,31 @@ I didnt get change to write too much TS, and ended up spending more time on the 
 I have added tests, however these were added after the 2 hour mark!
 
 On an entertaining note - I now hate React-Router - I have spent more time working out why RR isnt working/testing right than anything!
+
+## Extra points - UI work and other bits (All work in progress)
+
+A React based scheduler I am building - Work in progress
+https://codesandbox.io/p/github/DEMORALIZ3D/ReactBasedScheduler/main?workspaceId=28a372e4-01aa-4b6a-aa25-782236577d58
+
+A generic MUI Theme viewer
+https://codesandbox.io/p/sandbox/mui-theme-viewer-87nc04
+
+A Comptetion entry never sent in to this years Dev.to FE challenge. Windows Classic example.
+https://codesandbox.io/p/sandbox/dev-to-glam-makrup-challenge-svxhcf
+
+Example of custom hook built to handle dates based on localisation selection:
+https://codesandbox.io/p/sandbox/datefnslocalisation-5hpphb
+
+drilldown UI for Boohoo:
+https://codesandbox.io/p/sandbox/drilldown-table-example-f8ztw
+https://f8ztw.csb.app/
+
+A do it all input concept I was working on:
+https://codesandbox.io/p/sandbox/doitallinput-euvkv
+https://euvkv.csb.app/
+
+Shopping Basket example
+https://ky9hvm.csb.app/
+
+Misc bits:
+https://379iv.csb.app/
