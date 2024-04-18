@@ -91,6 +91,9 @@ On an entertaining note - I now hate React-Router - I have spent more time worki
 
 ## Extra points - UI work and other bits (All work in progress)
 
+my current portfolio: https://aaron-js.dev
+In progress ersion: https://ahm-dev-next-14-gf5utzgkn-mrharpermayo.vercel.app
+
 A React based scheduler I am building - Work in progress
 https://codesandbox.io/p/github/DEMORALIZ3D/ReactBasedScheduler/main?workspaceId=28a372e4-01aa-4b6a-aa25-782236577d58
 
